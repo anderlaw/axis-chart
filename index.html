@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      perspective:900px;
+    }
+    .container{
+      margin:0 auto;
+      width: 900px;
+      height: 600px;
+      position: relative;
+      transition:all 5s linear;
+      transform:rotateY(0);
+    }
+    .container.change1{
+      transform:rotateY(60deg);
+    }
+    .container.change2{
+      transform:rotateX(-60deg);
+    }
+    .container.change3{
+      transform:rotateX(0deg) rotateY(0deg);
+    }
+    .container.change4{
+      transform:rotateY(-60deg);
+    }
+    .axis-h{
+      width: 0;
+      height:1px;
+      position: absolute;
+      background-color: #000;
+      top:50%;
+    }
+    .axis-h.final::after{
+      position: absolute;
+      content:'';
+      border-width:6px 10px;
+      border-style:solid;
+      border-color:transparent;
+      border-left-color:#000;
+      right:0;
+      top:50%;
+      transform:translate(50%,-50%);
+    }
+    .axis-v{
+      width: 1px;
+      height: 0;
+      position: absolute;
+      left:50%;
+      background-color: #000;
+    }
+    .axis-v.final::after{
+      content:'';
+      position: absolute;
+      border-width:10px 6px;
+      border-style:solid;
+      border-color:transparent;
+      border-bottom-color:#000;
+      top:0;
+      left:50%;
+      transform:translate(-50%,-50%);
+    }
+    .grid-v-item{
+      position: absolute;
+      width: 1px;
+      height: 0%;
+      background-color: #ccc;
+    }
+    .grid-h-item{
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      background-color: #ccc;
+    }
+    .dot-box{
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      left:50%;
+      top:0;
+      /* background-color: red;  */
+    }
+    .dot-item{
+      width: 2px;
+      height: 2px;
+      background-color: red;
+      border-radius:50%;
+      position: absolute;
+    }
+    .desc{
+      position: absolute;
+      bottom: 0;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      transform: translateY(100%);
+      color: #5e5b5b;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="axis-h"></div>
+    <div class="axis-v"></div>
+    <div class="dot-box">
+    
+    </div>
+    <p class="desc">不用canvas,纯html+css+js实现y=x²对应的坐标轴图形</p>
+  </div>
+  <script src="http://code.jquery.com/jquery-3.4.0.min.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
